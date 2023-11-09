@@ -1,0 +1,28 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+             
+    <persistence-unit name="MiPersistencia" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+	<!-- Escaneo de clases -->
+		<class>modelos.Libro</class>
+
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/gestorBibliotecaPersonal"/>
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="diego"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            
+            <!-- Otras propiedades de configuración -->                    
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.default_schema" value="gbp_operacional"/><!-- shema -->
+            <property name="hibernate.globally_quoted_identifiers" value="true"/><!-- cambiar nombre tablas -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/><!-- actualizar -->
+            <property name="hibernate.hbm2ddl.auto" value="create"/><!-- crear -->
+        </properties>
+        
+    </persistence-unit>
+
+</persistence>
